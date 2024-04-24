@@ -26,7 +26,7 @@ class PuffcoMQTT:
             # taskGroup.create_task(self.mqtt.subscribe("climate/office/temperature"))
             taskGroup.create_task(self.pollPuffco())
 
-    async def pollPuffcoProfiles(self):
+    async def poll_puffco_profiles(self):
         profiles = [{}, {}, {}, {}]
         for i in range(0, 4):
             profileColor = await self.puffco.get_profile_color(i)
@@ -47,7 +47,7 @@ class PuffcoMQTT:
         while self.puffco.is_connected:
 
             current_profile = await self.puffco.get_profile()
-            all_profiles = await self.pollPuffcoProfiles()
+            all_profiles = await self.poll_puffco_profiles()
             print(all_profiles)
             # bowl_temperature = await self.puffco.get_bowl_temperature(celsius=True)
 
