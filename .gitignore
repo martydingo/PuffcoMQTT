@@ -1,3 +1,4 @@
 secrets*
 test.py*
 config.yaml
+*.pyc
